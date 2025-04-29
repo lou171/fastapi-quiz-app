@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz App</title>
+</head>
+<body>
+    <h1>Simple Quiz</h1>
+
+    {% if question %}
+        <p><strong>Score:</strong> {{ score }}</p>
+        <form action="/answer" method="post">
+            <p>{{ question }}</p>
+            <button type="submit" name="answer" value="true">True</button>
+            <button type="submit" name="answer" value="false">False</button>
+        </form>
+    {% else %}
+        <h2>Quiz Completed!</h2>
+        <p><strong>Your final score is:</strong> {{ score }}</p>
+        <p>{{ feedback }}</p>
+        <form action="/" method="get">
+            <button type="submit">Play Again</button>
+        </form>
+    {% endif %}
+</body>
+</html>
